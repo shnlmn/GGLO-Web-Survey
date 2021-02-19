@@ -1,17 +1,43 @@
 <!DOCTYPE html>
-<html lang="">
+<html class="full">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <title>Park Survey</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Park Survey" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script
+      src="js/jquery-2.1.4.min.js"
+      type="text/javascript"
+      charset="utf-8"
+      async
+      defer
+    ></script>
+    <style type="text/css">
+      canvas {
+        position: absolute;
+        background: transparent;
+        padding: 0 0 0 0;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+      }
+      .canvas_container {
+        margin-left: auto;
+        margin-right: auto;
+        padding: auto;
+        width: 900px;
+
+        height: 800px;
+      }
+    </style>
   </head>
   <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <div class="canvas_container" id="canvas_wrapper">
+      <div id="app"></div>
+    </div>
+    <button id="report_button" class="btn btn-default">REPORT</button>
+    <p id="csvOutput"></p>
+    <input id="data" type="hidden" />
   </body>
 </html>

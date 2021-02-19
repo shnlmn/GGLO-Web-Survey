@@ -1,19 +1,27 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <survey></survey>
+    <questions></questions>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import survey from "./components/survey";
+import questions from "./components/questions";
+import "material-design-icons-iconfont/dist/material-design-icons.css";
+// import { log } from 'fabric/fabric-impl';
 export default {
-  name: 'App',
+  name: "App",
+  data: () => {
+    return {
+    }
+  },
+  iconfont: "md",
   components: {
-    HelloWorld
-  }
-}
+    questions,
+    survey,
+  },
+};
 </script>
 
 <style>

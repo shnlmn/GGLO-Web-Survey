@@ -216,6 +216,7 @@ export function canvasApp() {
   function rotateCW(eventData, transform) {
     const target = transform.target;
     const canvas = target.canvas;
+    console.log(target.angle);
     if (target.angle == 0) {
       target.rotate(90);
     } else {

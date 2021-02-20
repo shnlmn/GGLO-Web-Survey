@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <survey></survey>
-    <questions></questions>
+    <!-- <questions></questions> -->
   </div>
 </template>
 
 <script>
 import survey from "./components/survey";
-import questions from "./components/questions";
+// import questions from "./components/questions";
 import "material-design-icons-iconfont/dist/material-design-icons.css";
 // import { log } from 'fabric/fabric-impl';
 export default {
@@ -18,7 +18,7 @@ export default {
   },
   iconfont: "md",
   components: {
-    questions,
+    // questions,
     survey,
   },
 };

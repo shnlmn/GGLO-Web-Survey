@@ -1,27 +1,27 @@
 import { fabric } from "fabric";
 import { scaleObj } from "./setScale.js";
-console.log(scaleObj(1000, 30));
 const pieces = require("../data/pieces.json");
 
 export function canvasApp() {
   //Set up the canvas, set its size based on container div
-  console.log("IN CANVASAPP");
   var theCanvas = new fabric.Canvas("canvas");
   var container = document.getElementById("canvas_wrapper");
   theCanvas.setHeight(container.clientHeight);
   theCanvas.setWidth(container.clientWidth);
-  // theCanvas.on("object:moving", function(options) {
-  //   options.target.set({
-  //     // preserveObjectStacking: true,
-  //     left: Math.round(options.target.left / gridSpace) * gridSpace,
-  //     top: Math.round(options.target.top / gridSpace) * gridSpace,
-  //   });
-  // });
+  theCanvas.on("object:moving", function(options) {
+    options.target.set({
+      // preserveObjectStacking: true,
+      left: Math.round(options.target.left / gridSpace) * gridSpace,
+      top: Math.round(options.target.top / gridSpace) * gridSpace,
+    });
+  });
 
   var canvasWidth = 2000;
   var canvasHeight = 2000;
   var sidebar = 200;
+  let gridSpace = 0;
   const spacing = 20;
+  let allPieces = [];
   let gridGroup = new fabric.Group([]);
   // SET UP BACKGROUND MAP
   var background = "img/siteplan_rot.jpg";
@@ -38,18 +38,16 @@ export function canvasApp() {
     Img.selectable = false;
     Img.hoverCursor = "auto";
     theCanvas.setBackgroundImage(Img, theCanvas.renderAll.bind(theCanvas));
-    backgroundImgWidth = Img.width/resize[2];
-    drawGrid(spacing);
+    backgroundImgWidth = Img.width / resize[2];
     drawObjs();
+    drawGrid(spacing);
   });
 
   var resize;
   // var gridSpace = 14;
-  console.log(backgroundImgWidth);
   var rotateIcon = "img/Rotate_right_arrow.png";
   var img = document.createElement("img");
   img.src = rotateIcon;
-
 
   const hideControls = {
     bl: false,
@@ -75,7 +73,7 @@ export function canvasApp() {
   // FUNCTIONS
 
   function drawGrid(spacing) {
-    var gridSpace = scaleObj(backgroundImgWidth, spacing);
+    gridSpace = scaleObj(backgroundImgWidth, spacing);
     const gridParams = {
       fill: "none",
       stroke: "white",
@@ -127,20 +125,17 @@ export function canvasApp() {
   function drawObjs() {
     // FIRST BUILDING ELEMENTS
 
-    let menuHeight = 0; // running tally of piece positions for sidebar
+    // let menuHeight = 0; // running tally of piece positions for sidebar
 
     // CREATE RECT PIECES
-    function numberArray(a,b){
- b=[];while(a--)b[a]=a+1;return b
-}
-   function fy(a,b,c,d){c=a.length;while(c)b=Math.random()*(--c+1)|0,d=a[c],a[c]=a[b],a[b]=d} 
-   const a = numberArray(pieces.length)
-   const test = fy(a);
-   console.log(a);
-   console.log(test);
+    function numberArray(a, b) {
+      b = [];
+      while (a--) b[a] = a + 1;
+      return b;
+    }
+    const a = numberArray(pieces.length);
     for (var ind in a) {
       const el = pieces[ind];
-      console.log("IND", ind);
       const bldgRect = new fabric.Rect({
         width: scaleObj(backgroundImgWidth, el.length),
         height: scaleObj(backgroundImgWidth, el.width),
@@ -152,56 +147,68 @@ export function canvasApp() {
         centeredRotation: true,
       });
 
-      bldgRect.label = el.name;
+      bldgRect.name = el.name;
       const bldgGroup = addLabel(bldgRect);
-      bldgGroup.set({
-        left: 30,
-        top: menuHeight,
-      });
 
       bldgGroup.my = { type: "program" };
-      bldgGroup.setControlsVisibility({
-        ...hideControls,
-        ...{ ml: false, mr: false },
-      });
+      bldgGroup.name = el.name;
+      bldgGroup.shapeType = el.shape;
+      setControls(bldgGroup);
 
       theCanvas.add(bldgGroup);
       draggable(bldgGroup);
+      allPieces.push(bldgGroup);
 
-      menuHeight += bldgRect.height + 15;
+      // menuHeight += bldgRect.height + 15;
     }
 
-    // ADD LINEAR ELEMENTS
+    // PLACE PIECES IN SIDEBAR
+    // let rowIndex = 0;
+    let maxHeight = 0;
+    let totalHeight = 0;
+    let rowWidth = 0;
+    let pieceMargin = 5;
+    let tempRow = [];
+    let pieceRows = [];
 
-    //   for (let obj = 0; obj < Object.entries(lineObj).length; obj++) {
-    //     const el = Object.entries(lineObj)[obj];
-    //     const lineRect = new fabric.Rect({
-    //       width: gridSpace,
-    //       height: gridSpace,
-    //       scaleY: el[1][0][0] / gridSpace,
-    //       scaleX: el[1][0][1] / gridSpace,
-    //       fill: el[1][1],
-    //       strokeWidth: 0,
-    //       centeredRotation: true,
-    //       left: 30,
-    //       top: menuHeight,
-    //       label: el[0],
-    //     });
-    //     menuHeight += lineRect.height * lineRect.scaleY + 15;
-    //     lineRect.label = el[[0]];
-    //     const lineGroup = addLabel(lineRect);
-    //     lineGroup.my = { type: "pathway" };
-    //     lineGroup.setControlsVisibility({
-    //       ...hideControls,
-    //     });
-    //     lineGroup.on("scaling", function() {
-    //       const functScale = Math.round(this.width / gridSpace);
-    //       this.scaleX =
-    //         Math.round(this.getScaledWidth() / gridSpace) / functScale;
-    //     });
-    //     theCanvas.add(lineGroup);
-    //     draggable(lineGroup);
-    //   }
+    for (var t = 0; t < allPieces.length; t++) {
+      const onePiece = allPieces[t];
+      // set rowWidth and maxHeight
+
+      if (rowWidth + onePiece.width < sidebar) {
+        rowWidth += onePiece.item(0).width + pieceMargin;
+        if (onePiece.height > maxHeight) {
+          maxHeight = onePiece.item(0).height + pieceMargin;
+        }
+        tempRow.push(onePiece);
+      } else {
+        pieceRows.push([tempRow, maxHeight, rowWidth]);
+        tempRow = [];
+        rowWidth = 0;
+        maxHeight = 0;
+        tempRow.push(onePiece);
+        rowWidth += onePiece.item(0).width + pieceMargin;
+        maxHeight = onePiece.item(0).height + pieceMargin;
+      }
+    }
+    pieceRows.push([tempRow, maxHeight, rowWidth]);
+
+    pieceRows.forEach((rows) => {
+      let tempWidth = (sidebar - rows[2]) / 2;
+      maxHeight = rows[1];
+      rows[0].forEach((item) => {
+        item.set({
+          top: totalHeight + (maxHeight / 2 - item.getCenterPoint().y),
+          // left: 100,
+          left: tempWidth,
+        });
+        item.setCoords(); //<-- super important
+        tempWidth += item.width + pieceMargin;
+      });
+      totalHeight += rows[1] + pieceMargin;
+    });
+
+    theCanvas.renderAll();
   }
 
   // CONTROL FUNCTIONS
@@ -236,37 +243,49 @@ export function canvasApp() {
     }
   });
 
+  function getAllActive(){
+    let activeObjs = {};
+    theCanvas.getObjects().forEach(function (targ){
+      if (targ.active){
+        console.log(targ);
+        activeObjs = {...activeObjs, targ};
+      }
+    })
+    return activeObjs;
+  }
+  
+  // set control limits by type
+  function setControls(object) {
+    if (object.shapeType !== "Line") {
+      object.setControlsVisibility({
+        ...hideControls,
+        ...{ ml: false, mr: false },
+      });
+    } else {
+      object.on("scaling", function() {
+        object._objects[1].set({
+          scaleX: 1 / object.scaleX,
+        });
+        theCanvas.requestRenderAll();
+        const functScale = Math.round(this.width / gridSpace);
+        this.scaleX =
+          Math.round(this.getScaledWidth() / gridSpace) / functScale;
+      });
+      object.setControlsVisibility({
+        ...hideControls,
+      });
+    }
+  }
+
   // DRAG TO CLONE FUNCTION -= Thanks to https://stackoverflow.com/questions/28183763/fabric-js-copy-paste-object-on-mouse-down
   function draggable(object) {
     let clicked = false;
     object.on("mousedown", function() {
+      object.active = true;
       this.clone(function(clone) {
-        clone.set({
-          //   hasControls: false,
-          hasBorders: false,
-        });
-        clone.my = { type: object.my.type };
-        clone.label = object.label;
-        // if (clone.my.type == "program") {
-        //   clone.setControlsVisibility({
-        //     ...hideControls,
-        //     ...{ ml: false, mr: false },
-        //   });
-        // } else {
-        //   clone.on("scaling", function() {
-        //     console.log(clone._objects[1]);
-        //     clone._objects[1].set({
-        //       scaleX: 1 / clone.scaleX,
-        //     });
-        //     theCanvas.requestRenderAll();
-        //     const functScale = Math.round(this.width / gridSpace);
-        //     this.scaleX =
-        //       Math.round(this.getScaledWidth() / gridSpace) / functScale;
-        //   });
-        //   clone.setControlsVisibility({
-        //     ...hideControls,
-        //   });
-        // }
+        clone.shapeType = object.shapeType;
+        clone.name = object.name;
+        setControls(clone);
         theCanvas.add(clone);
         draggable(clone);
         clicked = true;
@@ -288,16 +307,16 @@ export function canvasApp() {
         }
       });
     });
+    console.log(getAllActive()); 
   }
 
   function addLabel(object) {
-    const lineText = new fabric.Text(object.label, {
+    const lineText = new fabric.Text(object.name[0], {
       fontFamily: "arial",
       fontSize: 10,
-      fill: "white",
+      fill: "black",
       selectable: false,
     });
-    console.log(lineText);
     lineText.set({
       left:
         object.left + (object.width * object.scaleX) / 2 - lineText.width / 2,

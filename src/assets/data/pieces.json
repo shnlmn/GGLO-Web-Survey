@@ -77,6 +77,39 @@
     "color": "#912cee"
   },
   {
+    "name": "Small Plaza",
+    "width": 20,
+    "length": 30,
+    "du": "",
+    "type": "public",
+    "parking": "",
+    "shape": "Rect",
+    "cornerRad": 4,
+    "color": "#cd0000"
+  },
+  {
+    "name": "Large Plaza",
+    "width": 40,
+    "length": 80,
+    "du": "",
+    "type": "public",
+    "parking": "",
+    "shape": "Rect",
+    "cornerRad": 4,
+    "color": "#8b0000"
+  },
+  {
+    "name": "Rain Garden",
+    "width": 30,
+    "length": 20,
+    "du": "",
+    "type": "green",
+    "parking": "",
+    "shape": "Rect",
+    "cornerRad": 4,
+    "color": "#bc8f8f"
+  },
+  {
     "name": "Half Court Basketball",
     "width": 50,
     "length": 50,
@@ -119,39 +152,6 @@
     "shape": "Rect",
     "cornerRad": 4,
     "color": "#ee0000"
-  },
-  {
-    "name": "Small Plaza",
-    "width": 20,
-    "length": 30,
-    "du": "",
-    "type": "public",
-    "parking": "",
-    "shape": "Rect",
-    "cornerRad": 4,
-    "color": "#cd0000"
-  },
-  {
-    "name": "Large Plaza",
-    "width": 40,
-    "length": 80,
-    "du": "",
-    "type": "public",
-    "parking": "",
-    "shape": "Rect",
-    "cornerRad": 4,
-    "color": "#8b0000"
-  },
-  {
-    "name": "Rain Garden",
-    "width": 30,
-    "length": 20,
-    "du": "",
-    "type": "green",
-    "parking": "",
-    "shape": "Rect",
-    "cornerRad": 4,
-    "color": "#bc8f8f"
   },
   {
     "name": "Lawn",

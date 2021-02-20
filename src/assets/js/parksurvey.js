@@ -130,9 +130,17 @@ export function canvasApp() {
     let menuHeight = 0; // running tally of piece positions for sidebar
 
     // CREATE RECT PIECES
-
-    for (let ind = 0; ind < pieces.length; ind++) {
+    function numberArray(a,b){
+ b=[];while(a--)b[a]=a+1;return b
+}
+   function fy(a,b,c,d){c=a.length;while(c)b=Math.random()*(--c+1)|0,d=a[c],a[c]=a[b],a[b]=d} 
+   const a = numberArray(pieces.length)
+   const test = fy(a);
+   console.log(a);
+   console.log(test);
+    for (var ind in a) {
       const el = pieces[ind];
+      console.log("IND", ind);
       const bldgRect = new fabric.Rect({
         width: scaleObj(backgroundImgWidth, el.length),
         height: scaleObj(backgroundImgWidth, el.width),

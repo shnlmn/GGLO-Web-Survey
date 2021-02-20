@@ -18,9 +18,13 @@ export function canvasApp() {
   //   });
   // });
 
+  var canvasWidth = 2000;
+  var canvasHeight = 2000;
+  var sidebar = 200;
+  const spacing = 20;
   let gridGroup = new fabric.Group([]);
   // SET UP BACKGROUND MAP
-  var background = "img/siteplan.jpg";
+  var background = "img/siteplan_rot.jpg";
   let backgroundImgWidth = null;
   fabric.Image.fromURL(background, function(Img) {
     // Create resize var which controls aspect ratio
@@ -34,30 +38,10 @@ export function canvasApp() {
     Img.selectable = false;
     Img.hoverCursor = "auto";
     theCanvas.setBackgroundImage(Img, theCanvas.renderAll.bind(theCanvas));
-    backgroundImgWidth = Img.width;
-    drawGrid();
+    backgroundImgWidth = Img.width/resize[2];
+    drawGrid(spacing);
     drawObjs();
-    console.log(backgroundImgWidth);
   });
-
-  // const bldgObj = {
-  //   "2 - TH": [[30, 90], "#EA6F1F"],
-  //   "3 - APT": [[30, 90], "#EAA01F"],
-  //   "4 - APT": [[30, 90], "#21509B"],
-  //   PARKING: [[30, 90], "grey"],
-  // };
-  // const openObj = {
-  //   PARKLET: [[60, 90], "#609B00"],
-  //   PLAY: [[60, 90], "#426A00"],
-  //   GARDEN: [[30, 60], "#294102"],
-  //   GREEN: [[60, 60], "#1F3200"],
-  // };
-
-  // const lineObj = {
-  //   STREET: [[30, 90], "grey"],
-  //   DW: [[15, 30], "grey"],
-  //   PATHS: [[15, 90], "brown"],
-  // };
 
   var resize;
   // var gridSpace = 14;
@@ -66,9 +50,6 @@ export function canvasApp() {
   var img = document.createElement("img");
   img.src = rotateIcon;
 
-  var canvasWidth = 900;
-  var canvasHeight = 800;
-  var sidebar = 250;
 
   const hideControls = {
     bl: false,
@@ -91,12 +72,10 @@ export function canvasApp() {
     cornerSize: 24,
   });
 
-  // drawObjs();
-  // drawGrid();
   // FUNCTIONS
 
-  function drawGrid() {
-    var gridSpace = scaleObj(backgroundImgWidth, 50);
+  function drawGrid(spacing) {
+    var gridSpace = scaleObj(backgroundImgWidth, spacing);
     const gridParams = {
       fill: "none",
       stroke: "white",

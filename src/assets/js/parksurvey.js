@@ -1,4 +1,5 @@
 import { fabric } from "fabric";
+import { toolTipPopup } from "./toolTip.js";
 import { scaleObj } from "./setScale.js";
 const pieces = require("../data/pieces.json");
 
@@ -243,17 +244,17 @@ export function canvasApp() {
     }
   });
 
-  function getAllActive(){
+  function getAllActive() {
     let activeObjs = {};
-    theCanvas.getObjects().forEach(function (targ){
-      if (targ.active){
+    theCanvas.getObjects().forEach(function(targ) {
+      if (targ.active) {
         console.log(targ);
-        activeObjs = {...activeObjs, targ};
+        activeObjs = { ...activeObjs, targ };
       }
-    })
+    });
     return activeObjs;
   }
-  
+
   // set control limits by type
   function setControls(object) {
     if (object.shapeType !== "Line") {
@@ -307,7 +308,7 @@ export function canvasApp() {
         }
       });
     });
-    console.log(getAllActive()); 
+    console.log(getAllActive());
   }
 
   function addLabel(object) {
@@ -325,4 +326,32 @@ export function canvasApp() {
     });
     return new fabric.Group([object, lineText]);
   }
+  // console.log(toolTipPopup);
+  let tipText = null;
+  theCanvas.on("mouse:over", function(e) {
+    tipText = toolTipPopup(e);
+    if (tipText) {
+      theCanvas.add(tipText);
+    }
+    console.log(toolTipPopup(e));
+  });
+  theCanvas.on("mouse:down", function(e) {
+      console.log("DRAGGING");
+    if (tipText && e.target) {
+      e.target.removeWithUpdate(tipText);
+      theCanvas.remove(tipText);
+      theCanvas.renderAll();
+      e.target.setCoords();
+      console.log("DRAGGING");
+      // e.target.addWithUpdate(tipText);
+    }
+  });
+  theCanvas.on("mouse:out", function(e) {
+    if (tipText && e.target) {
+      e.target.removeWithUpdate(tipText);
+      theCanvas.remove(tipText);
+      theCanvas.renderAll();
+      e.target.setCoords();
+    }
+  });
 }

@@ -1,6 +1,7 @@
-﻿[
+[
   {
     "name": "2-3 story Townhomes",
+    "displayName": "",
     "width": 35,
     "length": 100,
     "du": 6,
@@ -8,10 +9,12 @@
     "parking": "",
     "shape": "Rect",
     "cornerRad": 0,
+    "floors": 2.5,
     "color": "#cd96cd"
   },
   {
     "name": "3 story walkup apartments",
+    "displayName": "",
     "width": 60,
     "length": 140,
     "du": 24,
@@ -19,10 +22,12 @@
     "parking": "",
     "shape": "Rect",
     "cornerRad": 0,
+    "floors": 3,
     "color": "#8b668b"
   },
   {
     "name": "3 story Multifamily",
+    "displayName": "",
     "width": 60,
     "length": 140,
     "du": 30,
@@ -30,10 +35,12 @@
     "parking": "",
     "shape": "Rect",
     "cornerRad": 0,
+    "floors": 3,
     "color": "#b0e0e6"
   },
   {
     "name": "4 story Multifamily",
+    "displayName": "",
     "width": 120,
     "length": 200,
     "du": 100,
@@ -41,10 +48,12 @@
     "parking": 100,
     "shape": "Rect",
     "cornerRad": 0,
+    "floors": 4,
     "color": "#a020f0"
   },
   {
     "name": "5-6 story Multifamily",
+    "displayName": "",
     "width": 120,
     "length": 200,
     "du": 150,
@@ -52,10 +61,12 @@
     "parking": 150,
     "shape": "Rect",
     "cornerRad": 0,
+    "floors": 5.5,
     "color": "#663399"
   },
   {
     "name": "8-12 story Multifamily",
+    "displayName": "",
     "width": 120,
     "length": 200,
     "du": 300,
@@ -63,10 +74,12 @@
     "parking": 300,
     "shape": "Rect",
     "cornerRad": 0,
+    "floors": 10,
     "color": "#9b30ff"
   },
   {
     "name": "Community Garden",
+    "displayName": "",
     "width": 60,
     "length": 100,
     "du": "",
@@ -74,10 +87,12 @@
     "parking": "",
     "shape": "Rect",
     "cornerRad": 4,
+    "floors": "",
     "color": "#912cee"
   },
   {
     "name": "Small Plaza",
+    "displayName": "",
     "width": 20,
     "length": 30,
     "du": "",
@@ -85,10 +100,12 @@
     "parking": "",
     "shape": "Rect",
     "cornerRad": 4,
+    "floors": "",
     "color": "#cd0000"
   },
   {
     "name": "Large Plaza",
+    "displayName": "",
     "width": 40,
     "length": 80,
     "du": "",
@@ -96,10 +113,12 @@
     "parking": "",
     "shape": "Rect",
     "cornerRad": 4,
+    "floors": "",
     "color": "#8b0000"
   },
   {
     "name": "Rain Garden",
+    "displayName": "",
     "width": 30,
     "length": 20,
     "du": "",
@@ -107,10 +126,12 @@
     "parking": "",
     "shape": "Rect",
     "cornerRad": 4,
+    "floors": "",
     "color": "#bc8f8f"
   },
   {
     "name": "Half Court Basketball",
+    "displayName": "",
     "width": 50,
     "length": 50,
     "du": "",
@@ -118,10 +139,12 @@
     "parking": "",
     "shape": "Rect",
     "cornerRad": 2,
+    "floors": "",
     "color": "#7d26cd"
   },
   {
     "name": "Bocce Court ",
+    "displayName": "",
     "width": 60,
     "length": 20,
     "du": "",
@@ -129,10 +152,12 @@
     "parking": "",
     "shape": "Rect",
     "cornerRad": 2,
+    "floors": "",
     "color": "#551a8b"
   },
   {
     "name": "Trail",
+    "displayName": "",
     "width": 16,
     "length": 120,
     "du": "",
@@ -140,10 +165,12 @@
     "parking": "",
     "shape": "Rect",
     "cornerRad": 0,
+    "floors": "",
     "color": "#ff0000"
   },
   {
     "name": "Play Area",
+    "displayName": "",
     "width": 80,
     "length": 80,
     "du": "",
@@ -151,10 +178,12 @@
     "parking": "",
     "shape": "Rect",
     "cornerRad": 4,
+    "floors": "",
     "color": "#ee0000"
   },
   {
     "name": "Lawn",
+    "displayName": "",
     "width": 20,
     "length": 40,
     "du": "",
@@ -162,10 +191,12 @@
     "parking": "",
     "shape": "Rect",
     "cornerRad": 4,
+    "floors": "",
     "color": "#ffc1c1"
   },
   {
     "name": "Pet Area ",
+    "displayName": "",
     "width": 30,
     "length": 80,
     "du": "",
@@ -173,10 +204,12 @@
     "parking": "",
     "shape": "Rect",
     "cornerRad": 4,
+    "floors": "",
     "color": "#eeb4b4"
   },
   {
     "name": "Art Installation",
+    "displayName": "",
     "width": 15,
     "length": 15,
     "du": "",
@@ -184,10 +217,12 @@
     "parking": "",
     "shape": "Cir",
     "cornerRad": 0,
+    "floors": "",
     "color": "#cd9b9b"
   },
   {
     "name": "Shelter",
+    "displayName": "",
     "width": 25,
     "length": 25,
     "du": "",
@@ -195,10 +230,12 @@
     "parking": "",
     "shape": "Rect",
     "cornerRad": 0,
+    "floors": "",
     "color": "#8b6969"
   },
   {
     "name": "Parking",
+    "displayName": "",
     "width": 60,
     "length": 100,
     "du": "",
@@ -206,10 +243,12 @@
     "parking": 20,
     "shape": "Rect",
     "cornerRad": 0,
+    "floors": "",
     "color": "#4169e1"
   },
   {
     "name": "Street",
+    "displayName": "",
     "width": 30,
     "length": 90,
     "du": "",
@@ -217,10 +256,12 @@
     "parking": "",
     "shape": "Line",
     "cornerRad": 0,
+    "floors": "",
     "color": "#4876ff"
   },
   {
     "name": "Paths",
+    "displayName": "",
     "width": 6,
     "length": 20,
     "du": "",
@@ -228,10 +269,12 @@
     "parking": "",
     "shape": "Line",
     "cornerRad": 0,
+    "floors": "",
     "color": "#436eee"
   },
   {
     "name": "Driveway/Alley",
+    "displayName": "",
     "width": 25,
     "length": 90,
     "du": "",
@@ -239,6 +282,7 @@
     "parking": "",
     "shape": "Line",
     "cornerRad": 0,
+    "floors": "",
     "color": "#3a5fcd"
   }
 ]

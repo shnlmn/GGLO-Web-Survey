@@ -1,24 +1,32 @@
 <template>
-  <div id="app">
-    <survey></survey>
-    <!-- <questions></questions> -->
-  </div>
+  <v-app>
+    <div id="app">
+      <displayData ref="displayData"></displayData>
+      <survey ref="survey"></survey>
+
+      <questions id="questions" ref="questions"></questions>
+    </div>
+  </v-app>
 </template>
 
 <script>
 import survey from "./components/survey";
-// import questions from "./components/questions";
+import displayData from "./components/displayData";
+import Vue2Filters from "vue2-filters";
 import "material-design-icons-iconfont/dist/material-design-icons.css";
-// import { log } from 'fabric/fabric-impl';
+import questions from "./components/questions.vue";
 export default {
   name: "App",
+  mixins: [Vue2Filters.mixin],
   data: () => {
     return {
-    }
+      dialog: false,
+    };
   },
   iconfont: "md",
   components: {
-    // questions,
+    questions,
+    displayData,
     survey,
   },
 };
@@ -31,6 +39,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  z-index: 0;
+  margin-top: 15px;
+}
+.questions {
+  z-index: 100;
 }
 </style>

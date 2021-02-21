@@ -1,5 +1,6 @@
 import { fabric } from "fabric";
 import { toolTipPopup } from "./toolTip.js";
+import { updateTotals } from "./updateTotals.js"
 import { scaleObj } from "./setScale.js";
 const pieces = require("../data/pieces.json");
 
@@ -147,15 +148,14 @@ export function canvasApp() {
         strokeColor: "white",
         centeredRotation: true,
       });
-
       bldgRect.name = el.name;
-      const bldgGroup = addLabel(bldgRect);
+      el.bldgArea = el.width*el.length
+      let bldgGroup = addLabel(bldgRect)
+      console.log("BLG AREA", el.bldgArea);
 
-      bldgGroup.my = { type: "program" };
-      bldgGroup.name = el.name;
-      bldgGroup.shapeType = el.shape;
+      bldgGroup = (applyData(bldgGroup,el))
+
       setControls(bldgGroup);
-
       theCanvas.add(bldgGroup);
       draggable(bldgGroup);
       allPieces.push(bldgGroup);
@@ -212,11 +212,21 @@ export function canvasApp() {
     theCanvas.renderAll();
   }
 
+  function applyData(clone, orig){
+      clone.my = { type: "program" };
+      clone.name = orig.name;
+      clone.shapeType = orig.shape;
+      clone.du = orig.du;
+      clone.type = orig.type
+      clone.bldgArea = orig.bldgArea
+      clone.floors = orig.floors
+      return clone
+  }
+
   // CONTROL FUNCTIONS
   function rotateCW(eventData, transform) {
     const target = transform.target;
     const canvas = target.canvas;
-    console.log(target.angle);
     if (target.angle == 0) {
       target.rotate(90);
     } else {
@@ -245,12 +255,11 @@ export function canvasApp() {
     }
   });
 
-  function getAllActive() {
-    let activeObjs = {};
+  function getAllActive () {
+    let activeObjs = [];
     theCanvas.getObjects().forEach(function(targ) {
       if (targ.active) {
-        console.log(targ);
-        activeObjs = { ...activeObjs, targ };
+        activeObjs.push(targ);
       }
     });
     return activeObjs;
@@ -285,8 +294,7 @@ export function canvasApp() {
     object.on("mousedown", function() {
       object.active = true;
       this.clone(function(clone) {
-        clone.shapeType = object.shapeType;
-        clone.name = object.name;
+        clone = applyData(clone, object)
         setControls(clone);
         theCanvas.add(clone);
         draggable(clone);
@@ -309,7 +317,6 @@ export function canvasApp() {
         }
       });
     });
-    console.log(getAllActive());
   }
 
   function addLabel(object) {
@@ -327,32 +334,44 @@ export function canvasApp() {
     });
     return new fabric.Group([object, lineText]);
   }
-  // console.log(toolTipPopup);
   let tipText = null;
   theCanvas.on("mouse:over", function(e) {
     tipText = toolTipPopup(e);
     if (tipText) {
       theCanvas.add(tipText);
     }
-    console.log(toolTipPopup(e));
   });
   theCanvas.on("mouse:down", function(e) {
-      console.log("DRAGGING");
     if (tipText && e.target) {
       e.target.removeWithUpdate(tipText);
       theCanvas.remove(tipText);
       theCanvas.renderAll();
       e.target.setCoords();
-      console.log("DRAGGING");
       // e.target.addWithUpdate(tipText);
     }
   });
-  theCanvas.on("mouse:out", function(e) {
+  theCanvas.on("mouse:out", function(e)  {
     if (tipText && e.target) {
       e.target.removeWithUpdate(tipText);
       theCanvas.remove(tipText);
       theCanvas.renderAll();
       e.target.setCoords();
     }
+
   });
+  theCanvas.on("mouse:up", function(){
+    updateTotals(getAllActive());
+
+  })
+  this.clearActive = () => {
+    theCanvas.getObjects().forEach(function(targ) {
+      if (targ.active) {
+        theCanvas.remove(targ);
+      }
+      updateTotals(getAllActive());
+    });
+  }
+  this.exportJSON = () => {
+    console.log("EXPORT JSON");
+  }
 }

@@ -42,7 +42,7 @@
 </template>
 
 <script>
-const fs = require('fs');
+// const fs = require('fs');
 export default {
   data: () => {
     return {

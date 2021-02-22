@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container class="pa-0 pb-8">
+    <v-container class="pa-0 pb-8" width="100%">
       <v-row class="pa-0">
         <v-col
           v-for="key in Object.keys(surveyData)"

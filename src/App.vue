@@ -7,8 +7,8 @@
         <siteFooter ref="footer"></siteFooter>
       </div>
 
-      <questions id="questions" ref="questions"></questions>
-            <div id="about-splash">
+      <questions id="questions" ref="questions" ></questions>
+      <div id="about-splash">
         <v-dialog v-model="dialogAbout" width="60%">
           <v-card>
             <v-fab-transition>
@@ -26,7 +26,14 @@
           <v-icon>mdi-help</v-icon>
         </v-btn>
       </div>
-      <v-navigation-drawer v-model="aboutDrawer" absolute bottom right temporary width="40%">
+      <v-navigation-drawer
+        v-model="aboutDrawer"
+        absolute
+        bottom
+        right
+        temporary
+        width="40%"
+      >
         <about></about>
       </v-navigation-drawer>
     </div>
@@ -60,6 +67,7 @@ export default {
     sayHi() {
       console.log(this.hi);
     },
+   
   },
   components: {
     about,
@@ -91,7 +99,7 @@ export default {
   width: 1200px;
   /* height: 650px; */
 }
-  #side-panel {
+#side-panel {
   position: absolute;
   top: 10px;
   right: 0px;

@@ -377,6 +377,7 @@ export default {
         });
         // updateTotals(that.getAllActive(this.canvas));
         that.$root.$emit("update-data", updateTotals(that.getAllActive()));
+        that.$root.$emit("JSONData", JSON.stringify(this.canvas));
       });
     },
     getAllActive() {
@@ -418,8 +419,8 @@ export default {
       this.$root.$emit("update-data", updateTotals(this.getAllActive()));
       this.canvas.renderAll();
     },
-    submit() {
-      console.log(JSON.stringify(this.canvas));
+    getData() {
+      this.$root.$emit("JSONData", JSON.stringify(this.canvas));
     },
   },
 };

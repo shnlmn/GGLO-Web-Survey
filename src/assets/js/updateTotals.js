@@ -19,7 +19,7 @@ export const updateTotals = (activeObjects) => {
     }
     if (el.type == "public") {
       totalData["publicArea"] += el.bldgArea;
-    }
+    } 
     if (el.type == "green") {
       totalData["greenArea"] += el.bldgArea;
     }
@@ -31,7 +31,8 @@ export const updateTotals = (activeObjects) => {
   // console.log(activeObjects);
   // vm.$children.$refs.totalDU = totalData["DU"];
   console.log("DU TOTAL", dut);
-  document.querySelector(
-    "#app"
-  ).__vue__.$children[0].$refs.displayData._data.surveyData = totalData;
+  // document.querySelector(
+  //   "#app"
+  // ).__vue__.$children[0].$refs.displayData._data.surveyData = totalData;
+  return totalData;
 };

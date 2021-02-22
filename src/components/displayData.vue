@@ -27,6 +27,11 @@ export default {
       },
     };
   },
+  mounted() {
+    this.$root.$on('update-data', data => {
+      this.surveyData = data;
+    })
+  }
 };
 </script>
 

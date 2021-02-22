@@ -21,9 +21,19 @@ export default {
   data: () => {
     return {
       dialog: false,
+      hi: "HELLO",
     };
   },
   iconfont: "md",
+ mounted() {
+  this.sayHi(); 
+ },
+  methods: {
+    sayHi() {
+      console.log(this.hi);
+    }
+
+ },
   components: {
     questions,
     displayData,

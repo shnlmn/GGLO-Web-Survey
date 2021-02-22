@@ -22,10 +22,10 @@ export const toolTipPopup = (e) => {
       if (targ.angle == 90) {
         offsetX = tipText.left - tipText.width / 2 -  targ.height / 2;
       } else {
-        offsetX = tipText.left - tipText.width / 2 + targ.width / 2;
+        offsetX = tipText.left - tipText.width / 2 + (targ.width*targ.scaleX) / 2;
       }
       if (targ.top < tipText.height+4){
-        offsetY = tipText.height
+        offsetY = tipText.height *2 
       } else {
         offsetY = tipText.top - tipText.height - 4
       }

@@ -1,8 +1,11 @@
 <template>
   <v-app>
     <div id="app">
-      <displayData ref="displayData"></displayData>
-      <survey ref="survey"></survey>
+      <div class="canvas_container" id="canvas_wrapper">
+        <displayData ref="displayData"></displayData>
+        <survey ref="survey"></survey>
+        <siteFooter ref="footer"></siteFooter>
+      </div>
 
       <questions id="questions" ref="questions"></questions>
     </div>
@@ -11,6 +14,7 @@
 
 <script>
 import survey from "./components/survey";
+import siteFooter from "./components/footer";
 import displayData from "./components/displayData";
 import Vue2Filters from "vue2-filters";
 import "material-design-icons-iconfont/dist/material-design-icons.css";
@@ -25,17 +29,17 @@ export default {
     };
   },
   iconfont: "md",
- mounted() {
-  this.sayHi(); 
- },
+  mounted() {
+    this.sayHi();
+  },
   methods: {
     sayHi() {
       console.log(this.hi);
-    }
-
- },
+    },
+  },
   components: {
     questions,
+    siteFooter,
     displayData,
     survey,
   },
@@ -54,5 +58,12 @@ export default {
 }
 .questions {
   z-index: 100;
+}
+.canvas_container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: auto;
+  width: 1200px;
+  /* height: 650px; */
 }
 </style>

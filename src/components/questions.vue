@@ -6,7 +6,7 @@
       transition="dialog-bottom-transition"
     >
       <template v-slot:activator="{ on, attrs }">
-        <v-btn v-bind="attrs" v-on="on">next</v-btn>
+        <v-btn id="nextbutton" dark color="#5d8aa8" v-bind="attrs" v-on="on">next</v-btn>
       </template>
       <v-card>
         <v-form ref="form" v-model="valid" lazy-validation class="pa-10">
@@ -73,4 +73,7 @@ export default {
 
 
 <style lang="css" scoped>
+#nextbutton {
+  margin-top: 50px;
+}
 </style>

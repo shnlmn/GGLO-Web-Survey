@@ -8,7 +8,7 @@
         transition="dialog-bottom-transition"
       >
         <template v-slot:activator="{ on, attrs }">
-          <v-btn v-on="on" v-bind="attrs">CLEAR</v-btn>
+          <v-btn color="pink" dark v-on="on" v-bind="attrs">CLEAR</v-btn>
         </template>
         <v-card>
           <v-card-text class="pa-5">
@@ -17,6 +17,8 @@
           <v-btn class="ma-5" @click="dialog = false">No</v-btn>
           <v-btn
             class="ma-5"
+            color="pink"
+            dark
             @click="
               clear();
               dialog = false;
@@ -77,10 +79,9 @@ export default {
   mounted: function () {
     /// ------------------------------------------------------------------
     this.canvas = new fabric.Canvas("canvas", {
-      // backgroundColor: "red",
+      // backgroundColor: "lightgray",
     });
     this.canvas.selection = false;
-
 
     let container = document.getElementById("canvas_wrapper");
     this.canvas.setHeight(container.clientHeight);
@@ -92,8 +93,6 @@ export default {
         top: Math.round(options.target.top / that.gridSpace) * that.gridSpace,
       });
     });
-    // const bkgImg = new Image();
-    // const bkgImg = {width: 100, height: 100}
 
     var that = this;
     this.bkg = fabric.Image.fromURL(this.background, function (Img) {
@@ -104,15 +103,14 @@ export default {
         that.canvas.height
       );
       // Create resize var which controls aspect ratio
-    fabric.Object.prototype.controls.rotateCWControl = new fabric.Control({
-      x: 0,
-      y: -0.5,
-      // offsetY: 16,
-      cursorStyle: "pointer",
-      mouseUpHandler: that.rotateCW,
-      render: that.renderIcon,
-      cornerSize: 24,
-    });
+      fabric.Object.prototype.controls.rotateCWControl = new fabric.Control({
+        x: 0,
+        y: -0.5,
+        cursorStyle: "pointer",
+        mouseUpHandler: that.rotateCW,
+        render: that.renderIcon,
+        cornerSize: 24,
+      });
       Img.set({ left: that.sidebar }).scale(that.resize[2]); //position background image
       Img.selectable = false;
       Img.hoverCursor = "auto";
@@ -193,9 +191,9 @@ export default {
         evented: false,
       });
       let that = this;
-      this.canvas.on("mouse:move", function(){
+      this.canvas.on("mouse:move", function () {
         that.canvas.bringToFront(gridGroup);
-      })
+      });
       this.canvas.add(gridGroup);
     },
 
@@ -248,12 +246,11 @@ export default {
         this.allPieces.push(bldgGroup);
 
         // menuHeight += bldgRect.height + 15;
-
       }
       // PLACE PIECES IN SIDEBAR
       // let rowIndex = 0;
       let maxHeight = 0;
-      let totalHeight = 0;
+      let totalHeight = 20;
       let rowWidth = 0;
       let pieceMargin = 5;
       let tempRow = [];
@@ -263,7 +260,7 @@ export default {
         const onePiece = this.allPieces[t];
         // set rowWidth and maxHeight
 
-        if (rowWidth + onePiece.width < this.sidebar) {
+        if (rowWidth + onePiece.width < this.sidebar - 60) {
           rowWidth += onePiece.item(0).width + pieceMargin;
           if (onePiece.height > maxHeight) {
             maxHeight = onePiece.item(0).height + pieceMargin;
@@ -431,7 +428,7 @@ export default {
 <style scoped>
 #clearButtonContainer {
   position: relative;
-  top: -680px;
+  top: -120px;
   left: 500px;
 }
 </style>

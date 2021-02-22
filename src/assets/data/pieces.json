@@ -26,19 +26,6 @@
     "color": "#8b668b"
   },
   {
-    "name": "3 story Multifamily",
-    "displayName": "",
-    "width": 60,
-    "length": 140,
-    "du": 30,
-    "type": "apt",
-    "parking": "",
-    "shape": "Rect",
-    "cornerRad": 0,
-    "floors": 3,
-    "color": "#b0e0e6"
-  },
-  {
     "name": "4 story Multifamily",
     "displayName": "",
     "width": 120,
@@ -50,19 +37,6 @@
     "cornerRad": 0,
     "floors": 4,
     "color": "#a020f0"
-  },
-  {
-    "name": "5-6 story Multifamily",
-    "displayName": "",
-    "width": 120,
-    "length": 200,
-    "du": 150,
-    "type": "apt",
-    "parking": 150,
-    "shape": "Rect",
-    "cornerRad": 0,
-    "floors": 5.5,
-    "color": "#663399"
   },
   {
     "name": "8-12 story Multifamily",
@@ -78,6 +52,19 @@
     "color": "#9b30ff"
   },
   {
+    "name": "Play Area",
+    "displayName": "",
+    "width": 80,
+    "length": 80,
+    "du": "",
+    "type": "play",
+    "parking": "",
+    "shape": "Rect",
+    "cornerRad": 4,
+    "floors": "",
+    "color": "#ee0000"
+  },
+  {
     "name": "Community Garden",
     "displayName": "",
     "width": 60,
@@ -89,45 +76,6 @@
     "cornerRad": 4,
     "floors": "",
     "color": "#912cee"
-  },
-  {
-    "name": "Small Plaza",
-    "displayName": "",
-    "width": 20,
-    "length": 30,
-    "du": "",
-    "type": "public",
-    "parking": "",
-    "shape": "Rect",
-    "cornerRad": 4,
-    "floors": "",
-    "color": "#cd0000"
-  },
-  {
-    "name": "Large Plaza",
-    "displayName": "",
-    "width": 40,
-    "length": 80,
-    "du": "",
-    "type": "public",
-    "parking": "",
-    "shape": "Rect",
-    "cornerRad": 4,
-    "floors": "",
-    "color": "#8b0000"
-  },
-  {
-    "name": "Rain Garden",
-    "displayName": "",
-    "width": 30,
-    "length": 20,
-    "du": "",
-    "type": "green",
-    "parking": "",
-    "shape": "Rect",
-    "cornerRad": 4,
-    "floors": "",
-    "color": "#bc8f8f"
   },
   {
     "name": "Half Court Basketball",
@@ -156,30 +104,43 @@
     "color": "#551a8b"
   },
   {
-    "name": "Trail",
+    "name": "Large Plaza",
     "displayName": "",
-    "width": 16,
-    "length": 120,
+    "width": 39,
+    "length": 79,
     "du": "",
     "type": "public",
     "parking": "",
     "shape": "Rect",
-    "cornerRad": 0,
+    "cornerRad": 3,
     "floors": "",
-    "color": "#ff0000"
+    "color": "#7b0000"
   },
   {
-    "name": "Play Area",
+    "name": "Small Plaza",
     "displayName": "",
-    "width": 80,
-    "length": 80,
+    "width": 20,
+    "length": 30,
     "du": "",
-    "type": "play",
+    "type": "public",
     "parking": "",
     "shape": "Rect",
     "cornerRad": 4,
     "floors": "",
-    "color": "#ee0000"
+    "color": "#cd0000"
+  },
+  {
+    "name": "Rain Garden",
+    "displayName": "",
+    "width": 30,
+    "length": 20,
+    "du": "",
+    "type": "green",
+    "parking": "",
+    "shape": "Rect",
+    "cornerRad": 4,
+    "floors": "",
+    "color": "#bc8f8f"
   },
   {
     "name": "Lawn",
@@ -247,10 +208,23 @@
     "color": "#4169e1"
   },
   {
+    "name": "Trail",
+    "displayName": "",
+    "width": 16,
+    "length": 125,
+    "du": "",
+    "type": "public",
+    "parking": "",
+    "shape": "Line",
+    "cornerRad": 0,
+    "floors": "",
+    "color": "#ff0000"
+  },
+  {
     "name": "Street",
     "displayName": "",
     "width": 30,
-    "length": 90,
+    "length": 125,
     "du": "",
     "type": "row",
     "parking": "",
@@ -263,7 +237,7 @@
     "name": "Paths",
     "displayName": "",
     "width": 6,
-    "length": 20,
+    "length": 125,
     "du": "",
     "type": "row",
     "parking": "",
@@ -276,7 +250,7 @@
     "name": "Driveway/Alley",
     "displayName": "",
     "width": 25,
-    "length": 90,
+    "length": 125,
     "du": "",
     "type": "row",
     "parking": "",

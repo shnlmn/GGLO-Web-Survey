@@ -1,23 +1,21 @@
-name,displayName,width,length,du,type,parking,shape,cornerRad,floors,color
-2-3 story Townhomes,,35,100,6,apt,,Rect,0,2.5,#cd96cd
-3 story walkup apartments,,60,140,24,apt,,Rect,0,3,#8b668b
-3 story Multifamily,,60,140,30,apt,,Rect,0,3,#b0e0e6
-4 story Multifamily,,120,200,100,apt,100,Rect,0,4,#a020f0
-5-6 story Multifamily,,120,200,150,apt,150,Rect,0,5.5,#663399
-8-12 story Multifamily,,120,200,300,apt,300,Rect,0,10,#9b30ff
-Community Garden,,60,100,,green,,Rect,4,,#912cee
-Small Plaza,,20,30,,public,,Rect,4,,#cd0000
-Large Plaza,,40,80,,public,,Rect,4,,#8b0000
-Rain Garden,,30,20,,green,,Rect,4,,#bc8f8f
-Half Court Basketball,,50,50,,play,,Rect,2,,#7d26cd
-Bocce Court ,,60,20,,play,,Rect,2,,#551a8b
-Trail,,16,120,,public,,Rect,0,,#ff0000
-Play Area,,80,80,,play,,Rect,4,,#ee0000
-Lawn,,20,40,,green,,Rect,4,,#ffc1c1
-Pet Area ,,30,80,,public,,Rect,4,,#eeb4b4
-Art Installation,,15,15,,art,,Cir,0,,#cd9b9b
-Shelter,,25,25,,public,,Rect,0,,#8b6969
-Parking,,60,100,,parking,20,Rect,0,,#4169e1
-Street,,30,90,,row,,Line,0,,#4876ff
-Paths,,6,20,,row,,Line,0,,#436eee
-Driveway/Alley,,25,90,,row,,Line,0,,#3a5fcd
+﻿name,displayName,width,length,du,type,parking,shape,cornerRad,color
+2-3 story Townhomes,Townhomes 2-3 Flrs,35,100,6,apt,,Rect,0,wheat 1
+3 story walkup apartments,Apts 3 Flrs,60,140,30,apt,,Rect,0,wheat2
+4-6 story Multifamily,Apts 4-6 Flrs,60,180,150,apt,,UShape,0,wheat3
+8-12 story Multifamily,Apts 8-12 Flrs,75,60,40,apt,,Rect,0,wheat4
+Community Garden,Friendship Garden,60,100,,green,,Rect,4,green4
+Small Plaza,Plaza - S,20,30,,public,,Rect,4,slategray2
+Large Plaza,Plaza - L,40,80,,public,,Rect,4,slategray3
+Rain Garden,,30,20,,green,,Rect,4,steelblue1
+Half Court Basketball,BB Court,50,50,,play,,Rect,2,orange2
+Bocce Court ,,60,20,,play,,Rect,2,orange3
+Trail,,16,120,,public,,Rect,0,orange4
+Play Area,,80,80,,play,,Rect,4,yellow3
+Lawn,,20,40,,green,,Rect,4,green1
+Pet Area ,,30,80,,public,,Rect,4,greenyellow
+Art Installation,,15,15,,art,,Cir,0,VioletRed
+Shelter,,25,25,,public,,Rect,0,yellow4
+Parking,,60,100,,parking,20,Rect,0,gray60
+Street,,30,90,,row,,Line,0,gray80
+Paths,,6,20,,row,,Line,0,tan4
+Driveway/Alley,Alley or DW,25,90,,row,,Line,0,gray70

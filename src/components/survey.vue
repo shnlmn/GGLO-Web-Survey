@@ -34,6 +34,7 @@
 
 <script>
 import pieces from "@/assets/data/pieces.json";
+import colorList from "@/assets/data/colors.json";
 import { fabric } from "fabric";
 import { toolTipPopup } from "@/assets/js/toolTip.js";
 import { updateTotals } from "@/assets/js/updateTotals.js";
@@ -77,6 +78,7 @@ export default {
     msg: String,
   },
   mounted: function () {
+    // this.colorList = JSON.parse(colorList);
     /// ------------------------------------------------------------------
     this.canvas = new fabric.Canvas("canvas", {
       // backgroundColor: "lightgray",
@@ -230,15 +232,27 @@ export default {
           scaleX: 1,
           rx: el.cornerRad,
           ry: el.cornerRad,
-          fill: el.color,
+          fill: colorList[el.color],
           strokeColor: "white",
           centeredRotation: true,
         });
+        if (el.displayName.length > 0 && el.du > 0) {
+          bldgRect.displayName = el.du + " unit " + el.displayName;
+        } else if (el.displayName.length > 0) {
+          bldgRect.displayName = el.displayName;
+        } else {
+
+          bldgRect.displayName = el.name;
+        }
+        el.displayName = bldgRect.displayName;
+        console.log(bldgRect);
+        bldgRect.displayName = el.displayName;
         bldgRect.name = el.name;
         el.bldgArea = el.width * el.length;
         let bldgGroup = this.addLabel(bldgRect);
 
         bldgGroup = this.applyData(bldgGroup, el);
+        console.log(bldgGroup);
 
         this.setControls(bldgGroup);
         this.canvas.add(bldgGroup);
@@ -315,7 +329,8 @@ export default {
     applyData(clone, orig) {
       clone.my = { type: "program" };
       clone.name = orig.name;
-      clone.shapeType = orig.shape;
+      clone.displayName = orig.displayName;
+      clone.shape = orig.shape;
       clone.du = orig.du;
       clone.type = orig.type;
       clone.bldgArea = orig.bldgArea;
@@ -324,7 +339,8 @@ export default {
     },
     setControls(object) {
       const that = this;
-      if (object.shapeType !== "Line") {
+      console.log(object);
+      if (object.shape !== "Line") {
         object.setControlsVisibility({
           ...that.hideControls,
           ...{ ml: false, mr: false },

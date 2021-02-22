@@ -11,7 +11,7 @@ export const toolTipPopup = (e) => {
     if ("name" in targ && targ.name !== "toolTip") {
       // make blank rect so it renders below text
 
-      tipText = new fabric.Text(targ.name, {
+      tipText = new fabric.Text(targ.displayName, {
         fontSize: 20,
         fill: "black",
         top: targ.top,
@@ -30,10 +30,14 @@ export const toolTipPopup = (e) => {
         offsetY = tipText.top - tipText.height - 4
       }
 
+
       tipText.set({
         left: offsetX,
         top: offsetY
       });
+      if (tipText.left < 0){
+        tipText.left = offsetX - tipText.left + 5;
+      }
       tipTextBox = new fabric.Rect({
         selectable: false,
         evented: false,

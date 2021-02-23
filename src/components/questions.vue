@@ -167,7 +167,7 @@ export default {
 
 <style lang="css" scoped>
 #nextbutton {
-  margin-top: 50px;
+  margin-top: 100px;
 }
 form {
   text-align: left !important;

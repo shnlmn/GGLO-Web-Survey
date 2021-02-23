@@ -461,7 +461,7 @@ export default {
 <style scoped>
 #clearButtonContainer {
   position: relative;
-  top: -120px;
-  left: 500px;
+  top: 10px;
+  left:480px;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-container>
-    <v-img src="/img/GGLO_logo_dark.png" max-width="200" max-height="200" class="mx-auto"></v-img>
+    <v-img src="/img/GGLO_logo_dark.png" max-width="200" max-height="200" class="mx-auto" id="logo"></v-img>
     </v-container>
   </div>
 </template>
@@ -16,5 +16,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
+#logo {
+  top: 20px;
+}
 </style>

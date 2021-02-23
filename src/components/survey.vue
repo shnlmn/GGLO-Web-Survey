@@ -408,7 +408,7 @@ export default {
         dataBin[i].shape = el.shape;
         dataBin[i].rx = el.rx;
         dataBin[i].ry = el.ry;
-        dataBin[i].fill = el.fill;
+        dataBin[i].fill = el.item(0).fill;
       }
       console.log("DATA");
       console.log(dataBin)

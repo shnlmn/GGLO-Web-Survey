@@ -400,7 +400,8 @@ export default {
         dataBin[i].du = el.du;
         dataBin[i].left = el.left;
         dataBin[i].top = el.top;
-        dataBin[i].centerPoint = el.getCenterPoint();
+        dataBin[i].centerPointX = el.getCenterPoint().x;
+        dataBin[i].centerPointY = el.getCenterPoint().y;
         dataBin[i].scaleX = el.scaleX;
         dataBin[i].scaleY = el.scaleY;
         dataBin[i].angle = el.angle;

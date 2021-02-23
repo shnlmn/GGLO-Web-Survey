@@ -14,7 +14,7 @@ export const updateTotals = (activeObjects) => {
     console.log(el);
       totalData["DU"]['total'] += el.du;
       // totalData["bldgArea"]['total'] += el.bldgArea;
-      totalData["floorArea"]['total'] += el.bldgArea * el.floors;
+      // totalData["floorArea"]['total'] += el.bldgArea * el.floors;
     }
     if (el.type == "public") {
       totalData["publicArea"]['total'] += el.bldgArea;

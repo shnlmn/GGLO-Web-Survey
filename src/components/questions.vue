@@ -24,7 +24,7 @@
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
-          <input type="hidden" name="submitEntry" value="submitEntry"/>
+          <input type="hidden" name="form-name" value="submitEntry"/>
           <p class="h4 text-center mb-4">One last step to submit your input.</p>
           <label for="zip-code" class="grey-text">Your Zip Code</label>
           <input
@@ -44,7 +44,7 @@
               type="radio"
               class="custom-control-input"
               id="resident-yes"
-              name="resident"
+              name="resident-yes"
               value="yes"
             />
             <label class="custom-control-label" for="resident-yes">Yes</label>
@@ -55,7 +55,7 @@
               type="radio"
               class="custom-control-input"
               id="resident-no"
-              name="resident"
+              name="resident-no"
               value="no"
             />
             <label class="custom-control-label" for="resident-no">No</label>
@@ -70,7 +70,7 @@
               type="radio"
               class="custom-control-input"
               id="neighbor-yes"
-              name="neighbor"
+              name="neighbor-yes"
               value="yes"
             />
             <label class="custom-control-label" for="neighbor-yes">Yes</label>
@@ -81,7 +81,7 @@
               type="radio"
               class="custom-control-input"
               id="neighbor-no"
-              name="neighbor"
+              name="neighbor-no"
               value="no"
             />
             <label class="custom-control-label" for="neighbor-no">No</label>

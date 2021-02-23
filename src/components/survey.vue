@@ -387,8 +387,33 @@ export default {
         });
         // updateTotals(that.getAllActive(this.canvas));
         that.$root.$emit("update-data", updateTotals(that.getAllActive()));
-        that.$root.$emit("JSONData", JSON.stringify(this.canvas));
+        that.$root.$emit("JSONData", that.formatData());
       });
+    },
+    formatData (){
+      let dataBin = [];
+      const active = this.getAllActive()
+      for (let i = 0; i < active.length; i++) {
+        const el = active[i];
+        dataBin.push({})
+        dataBin[i].name = el.name;
+        dataBin[i].du = el.du;
+        dataBin[i].left = el.left;
+        dataBin[i].top = el.top;
+        dataBin[i].centerPoint = el.getCenterPoint();
+        dataBin[i].scaleX = el.scaleX;
+        dataBin[i].scaleY = el.scaleY;
+        dataBin[i].angle = el.angle;
+        dataBin[i].shape = el.shape;
+        dataBin[i].rx = el.rx;
+        dataBin[i].ry = el.ry;
+        dataBin[i].fill = el.fill;
+      }
+      console.log("DATA");
+      console.log(dataBin)
+      const data = JSON.stringify(dataBin);
+      console.log(data);
+      return JSON.stringify(dataBin);
     },
     getAllActive() {
       let activeObjs = [];
@@ -428,9 +453,6 @@ export default {
       });
       this.$root.$emit("update-data", updateTotals(this.getAllActive()));
       this.canvas.renderAll();
-    },
-    getData() {
-      this.$root.$emit("JSONData", JSON.stringify(this.canvas));
     },
   },
 };

@@ -57,7 +57,7 @@
             <v-radio label="yes" value="yes"></v-radio>
             <v-radio label="no" value="no"></v-radio>
           </v-radio-group>
-          <v-btn class="mr-4" @click="handleSubmit">submit</v-btn>
+          <v-btn class="mr-4" @submit.prevent="handleSubmit">submit</v-btn>
           <!-- <v-btn @click="clear">clear</v-btn> -->
         </v-form>
       </v-card>

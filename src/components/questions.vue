@@ -5,25 +5,62 @@
       width="500"
       transition="dialog-bottom-transition"
     >
-      <template v-slot:activator="{ on, attrs }"> <v-btn id="nextbutton" dark color="#5d8aa8" @click="sendData" v-bind="attrs" v-on="on" >next</v-btn >
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          id="nextbutton"
+          dark
+          color="#5d8aa8"
+          @click="sendData"
+          v-bind="attrs"
+          v-on="on"
+          >next</v-btn
+        >
       </template>
       <v-card class="pa-10">
-        <form @submit.prevent="handleSubmit" method="POST" name="submitEntry" data-netlify="true" data-netlify-honeypot="bot-field" netlify>
+        <form
+          @submit.prevent="handleSubmit"
+          method="POST"
+          name="submitEntry"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          netlify
+        >
+          <input type="hidden" name="form-name" value="submitEntry" />
 
-          <input type="hidden" name="form-name" value="submitEntry"/>
-          
           <p class="h4 text-center mb-4">One last step to submit your input.</p>
           <label for="zip-code" class="grey-text">Your Zip Code</label>
-         
-          <input name="zipCode" type="zipCode" id="zip" class="form-control" v-model="answers.zipCode" />
+
+          <input
+            name="zipCode"
+            type="zipCode"
+            id="zip"
+            class="form-control"
+            v-model="answers.zipCode"
+          />
           <br />
-          <label for="resident" class="grey-text" >Do you live in an EHA building?</label >
+          <label for="resident" class="grey-text"
+            >Do you live in an EHA building?</label
+          >
           <div class="custom-control custom-radio">
-            <input v-model="answers.resident" type="radio" class="custom-control-input" id="resident-yes" name="resident" value="yes" />
+            <input
+              v-model="answers.resident"
+              type="radio"
+              class="custom-control-input"
+              id="resident-yes"
+              name="resident"
+              value="yes"
+            />
             <label class="custom-control-label" for="resident-yes">Yes</label>
           </div>
           <div class="custom-control custom-radio">
-            <input v-model="answers.resident" type="radio" class="custom-control-input" id="resident-no" name="resident" value="no" />
+            <input
+              v-model="answers.resident"
+              type="radio"
+              class="custom-control-input"
+              id="resident-no"
+              name="resident"
+              value="no"
+            />
             <label class="custom-control-label" for="resident-no">No</label>
           </div>
           <br />
@@ -31,11 +68,25 @@
             >Are you a neighbor to an EHA development?</label
           >
           <div class="custom-control custom-radio">
-            <input v-model="answers.neighbor" type="radio" class="custom-control-input" id="neighbor-yes" name="neighbor" value="yes" />
+            <input
+              v-model="answers.neighbor"
+              type="radio"
+              class="custom-control-input"
+              id="neighbor-yes"
+              name="neighbor"
+              value="yes"
+            />
             <label class="custom-control-label" for="neighbor-yes">Yes</label>
           </div>
           <div class="custom-control custom-radio">
-            <input v-model="answers.neighbor" type="radio" class="custom-control-input" id="neighbor-no" name="neighbor" value="no" />
+            <input
+              v-model="answers.neighbor"
+              type="radio"
+              class="custom-control-input"
+              id="neighbor-no"
+              name="neighbor"
+              value="no"
+            />
             <label class="custom-control-label" for="neighbor-no">No</label>
           </div>
 
@@ -46,7 +97,6 @@
           </div>
         </form>
       </v-card>
-
     </v-dialog>
   </div>
 </template>
@@ -106,11 +156,6 @@ export default {
       })
         .then(() => console.log("successfully sent"))
         .catch((e) => console.error(e));
-      console.log(
-        this.encode({
-          ...this.answers,
-        })
-      );
     },
   },
 };

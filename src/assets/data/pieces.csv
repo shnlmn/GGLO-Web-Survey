@@ -1,20 +1,20 @@
-﻿name,displayName,Floors,width,length,du,type,parking,shape,cornerRad,color
-2-3 story Townhomes,Townhomes 2-3 Flrs,2.5,35,100,6,apt,,Rect,0,wheat1
-3 story walkup apartments,Apts 3 Flrs,3,60,140,30,apt,,Rect,0,wheat2
-4-6 story Multifamily,Apts 4-6 Flrs,5,60,180,150,apt,,UShape,0,wheat3
-8-12 story Multifamily,Apts 8-12 Flrs,10,75,60,40,apt,,Rect,0,wheat4
+﻿name,displayName,floors,width,length,du,type,parking,shape,cornerRad,color
+2-3 story Townhomes,Townhomes - 2-3 Flrs,2.5,35,100,6,apt,,Rect,0,wheat1
+3 story walkup apartments,Apts - 3 Flrs,3,60,140,30,apt,,Rect,0,wheat2
+4-6 story Multifamily,Apts - 4-6 Flrs,5,60,180,150,apt,,UShape,0,wheat3
+8-12 story Multifamily,Apts - 8-12 Flrs,10,75,60,40,apt,,Rect,0,wheat4
 Community Garden,Friendship Garden,,60,100,,green,,Rect,4,green4
 Small Plaza,Plaza - S,,20,30,,public,,Rect,4,SlateGray2
 Large Plaza,Plaza - L,,40,80,,public,,Rect,4,SlateGray3
 Rain Garden,,,30,20,,green,,Rect,4,SteelBlue1
 Half Court Basketball,BB Court,,50,50,,play,,Rect,2,orange2
 Bocce Court ,,,60,20,,play,,Rect,2,orange3
-Trail,,,16,120,,public,,Rect,0,orange4
+Trail,,,16,125,,public,,Rect,0,orange4
 Play Area,,,80,80,,play,,Rect,4,yellow3
 Lawn,,,20,40,,green,,Rect,4,green1
 Pet Area ,,,30,80,,public,,Rect,4,GreenYellow
 Art Installation,,,15,15,,art,,Cir,0,VioletRed
-Shelter,,,25,25,,public,,Rect,0,yellow4
+Picnic Shelter,Picnic Shelter,,25,25,,public,,Rect,0,yellow4
 Parking,,,60,100,,parking,20,Rect,0,gray60
 Street,,,30,125,,row,,Line,0,gray80
 Paths,,,6,125,,row,,Line,0,tan4

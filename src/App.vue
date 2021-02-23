@@ -56,17 +56,12 @@ export default {
       dialogAbout: true,
       aboutDrawer: false,
       dialog: false,
-      hi: "HELLO",
     };
   },
   iconfont: "md",
   mounted() {
-    this.sayHi();
   },
   methods: {
-    sayHi() {
-      console.log(this.hi);
-    },
    
   },
   components: {

@@ -1,7 +1,7 @@
 ﻿[
   {
     "name": "2-3 story Townhomes",
-    "displayName": "Townhomes 2-3 Flrs",
+    "displayName": "Townhomes - 2-3 Flrs",
     "floors": 2.5,
     "width": 35,
     "length": 100,
@@ -14,7 +14,7 @@
   },
   {
     "name": "3 story walkup apartments",
-    "displayName": "Apts 3 Flrs",
+    "displayName": "Apts - 3 Flrs",
     "floors": 3,
     "width": 60,
     "length": 140,
@@ -27,9 +27,9 @@
   },
   {
     "name": "4-6 story Multifamily",
-    "displayName": "Apts 4-6 Flrs",
+    "displayName": "Apts - 4-6 Flrs",
     "floors": 5,
-    "width": 60,
+    "width": 120,
     "length": 180,
     "du": 150,
     "type": "apt",
@@ -40,7 +40,7 @@
   },
   {
     "name": "8-12 story Multifamily",
-    "displayName": "Apts 8-12 Flrs",
+    "displayName": "Apts - 8-12 Flrs",
     "floors": 10,
     "width": 75,
     "length": 60,
@@ -134,7 +134,7 @@
     "displayName": "",
     "floors": "",
     "width": 16,
-    "length": 120,
+    "length": 125,
     "du": "",
     "type": "public",
     "parking": "",
@@ -195,8 +195,8 @@
     "color": "VioletRed"
   },
   {
-    "name": "Shelter",
-    "displayName": "",
+    "name": "Picnic Shelter",
+    "displayName": "Picnic Shelter",
     "floors": "",
     "width": 25,
     "length": 25,

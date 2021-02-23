@@ -222,22 +222,41 @@ export default {
 
       for (let ind = 0; ind < pieces.length; ind++) {
         const el = pieces[ind];
-        const bldgRect = new fabric.Rect({
-          width: scaleObj(that.backgroundImgWidth, el.length),
-          height: scaleObj(that.backgroundImgWidth, el.width),
-          scaleX: 1,
-          rx: el.cornerRad,
-          ry: el.cornerRad,
-          fill: colorList[el.color],
-          strokeColor: "white",
-          centeredRotation: true,
-        });
+        let bldgRect = new fabric.Rect();
+        if (el.shape == "UShape") {
+          const points = [
+            { x: 0, y: 0, },
+            { x: scaleObj(that.backgroundImgWidth, 60), y: 0 },
+            { x: scaleObj(that.backgroundImgWidth, 60), y: scaleObj(that.backgroundImgWidth, 60) },
+            { x: scaleObj(that.backgroundImgWidth, 120), y: scaleObj(that.backgroundImgWidth, 60) },
+            { x: scaleObj(that.backgroundImgWidth, 120), y: 0 },
+            { x: scaleObj(that.backgroundImgWidth, 180), y: 0 },
+            { x: scaleObj(that.backgroundImgWidth, 180), y: scaleObj(that.backgroundImgWidth, 120) },
+            { x: 0, y: scaleObj(that.backgroundImgWidth, 120) },
+          ];
+         bldgRect = new fabric.Polygon(points, {
+            rx: el.cornerRad,
+            ry: el.cornerRad,
+            fill: colorList[el.color],
+            centeredRotation: true,
+          });
+       
+        } else {
+          bldgRect = new fabric.Rect({
+            width: scaleObj(that.backgroundImgWidth, el.length),
+            height: scaleObj(that.backgroundImgWidth, el.width),
+            scaleX: 1,
+            rx: el.cornerRad,
+            ry: el.cornerRad,
+            fill: colorList[el.color],
+            centeredRotation: true,
+          });
+        }
         if (el.displayName.length > 0 && el.du > 0) {
-          bldgRect.displayName = el.du + " unit " + el.displayName;
+          bldgRect.displayName = el.du + " " + el.displayName;
         } else if (el.displayName.length > 0) {
           bldgRect.displayName = el.displayName;
         } else {
-
           bldgRect.displayName = el.name;
         }
         el.displayName = bldgRect.displayName;
@@ -319,7 +338,13 @@ export default {
           (object.height * object.scaleY) / 2 -
           lineText.height / 2,
       });
-      return new fabric.Group([object, lineText]);
+      console.log(object._objects);
+      if (object._objects) {
+        console.log("OBJECTS");
+        return object.add(lineText);
+      } else {
+        return new fabric.Group([object, lineText]);
+      }
     },
     applyData(clone, orig) {
       clone.my = { type: "program" };
@@ -390,12 +415,12 @@ export default {
         that.$root.$emit("JSONData", that.formatData());
       });
     },
-    formatData (){
+    formatData() {
       let dataBin = [];
-      const active = this.getAllActive()
+      const active = this.getAllActive();
       for (let i = 0; i < active.length; i++) {
         const el = active[i];
-        dataBin.push({})
+        dataBin.push({});
         dataBin[i].name = el.name;
         dataBin[i].du = el.du;
         dataBin[i].left = el.left;
@@ -412,10 +437,6 @@ export default {
         dataBin[i].ry = el.ry;
         dataBin[i].fill = el.item(0).fill;
       }
-      console.log("DATA");
-      console.log(dataBin)
-      const data = JSON.stringify(dataBin);
-      console.log(data);
       return JSON.stringify(dataBin);
     },
     getAllActive() {
@@ -465,6 +486,6 @@ export default {
 #clearButtonContainer {
   position: relative;
   top: 10px;
-  left:480px;
+  left: 480px;
 }
 </style>

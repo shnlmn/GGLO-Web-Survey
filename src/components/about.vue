@@ -48,6 +48,7 @@ Game Piece Descriptions
 <span>Plazas – Small or large gathering places</span>
   </li>
   <li>
+
 <span>Courts and Play areas – active and passive recreation</span>
   </li>
   <li>

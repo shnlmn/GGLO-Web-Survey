@@ -2,7 +2,7 @@ export const updateTotals = (activeObjects) => {
   let totalData = {
     DU: {label: "Total Units", total: 0},
     // bldgArea: {label: "Total Built Area", total: 0},
-    floorArea: {label: "Total Floor Area", total: 0},
+    // floorArea: {label: "Total Floor Area", total: 0},
     publicArea: {label: "Total Public Area", total: 0},
     greenArea: {label: "Total Green Area", total: 0},
     playArea: {label: "Total Play Area", total: 0},

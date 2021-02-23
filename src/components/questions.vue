@@ -25,7 +25,6 @@
           data-netlify-honeypot="bot-field"
         >
           <input type="hidden" name="submitEntry" value="submitEntry"/>
-          <input type="hidden" name="bot-field" value="submitEntry" />
           <p class="h4 text-center mb-4">One last step to submit your input.</p>
           <label for="zip-code" class="grey-text">Your Zip Code</label>
           <input

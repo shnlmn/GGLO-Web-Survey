@@ -19,11 +19,11 @@
           <br />
           <label for="resident" class="grey-text" >Do you live in an EHA building?</label >
           <div class="custom-control custom-radio">
-            <input v-model="answers.resident" type="radio" class="custom-control-input" id="resident-yes" name="resident-yes" value="yes" />
+            <input v-model="answers.resident" type="radio" class="custom-control-input" id="resident-yes" name="resident" value="yes" />
             <label class="custom-control-label" for="resident-yes">Yes</label>
           </div>
           <div class="custom-control custom-radio">
-            <input v-model="answers.resident" type="radio" class="custom-control-input" id="resident-no" name="resident-no" value="no" />
+            <input v-model="answers.resident" type="radio" class="custom-control-input" id="resident-no" name="resident" value="no" />
             <label class="custom-control-label" for="resident-no">No</label>
           </div>
           <br />
@@ -31,11 +31,11 @@
             >Are you a neighbor to an EHA development?</label
           >
           <div class="custom-control custom-radio">
-            <input v-model="answers.neighbor" type="radio" class="custom-control-input" id="neighbor-yes" name="neighbor-yes" value="yes" />
+            <input v-model="answers.neighbor" type="radio" class="custom-control-input" id="neighbor-yes" name="neighbor" value="yes" />
             <label class="custom-control-label" for="neighbor-yes">Yes</label>
           </div>
           <div class="custom-control custom-radio">
-            <input v-model="answers.neighbor" type="radio" class="custom-control-input" id="neighbor-no" name="neighbor-no" value="no" />
+            <input v-model="answers.neighbor" type="radio" class="custom-control-input" id="neighbor-no" name="neighbor" value="no" />
             <label class="custom-control-label" for="neighbor-no">No</label>
           </div>
 

@@ -1,0 +1,186 @@
+[33mcommit 5ca69c83e274a954a4c8a3b68d8eafb10ec1a46f[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Mon Feb 22 17:27:14 2021 -0800
+
+    added mdb
+
+[33mcommit 9db1780ebd4b48273dc8dfa8625143a1c99d875c[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Mon Feb 22 17:08:32 2021 -0800
+
+    updating form still
+
+[33mcommit 2504dcf016097da0d5cadbb4eac2f2bbccbf3a88[m[33m ([m[1;31mGGLO-Web-Survey/master[m[33m)[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Mon Feb 22 16:57:15 2021 -0800
+
+    updated background image, testing form
+
+[33mcommit 89f2ef6090e2516f0c7266c7279ee4bcf4d9f661[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Mon Feb 22 16:33:34 2021 -0800
+
+    set Data upload format
+
+[33mcommit 549b4515243a9569394af8fc9cc8eec10ae8701f[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Mon Feb 22 16:06:26 2021 -0800
+
+    fixes
+
+[33mcommit ae6c1ba16e5e5b5d277a70d6b0744060743a429d[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Mon Feb 22 15:53:44 2021 -0800
+
+    updated pieces routine, added displayName
+
+[33mcommit a2a39acec4c854d3e0c3285bffffefc4ed61f9e1[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Mon Feb 22 14:18:18 2021 -0800
+
+    added netlify form
+
+[33mcommit 42efc8e0c7296f2c6b954e2f368f8679b8f431f2[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Mon Feb 22 11:42:01 2021 -0800
+
+    added About popup from casita
+
+[33mcommit e7cf058b35ee8a34adb36d20597b7740de956664[m
+Merge: 18570a1 01f56d6
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Mon Feb 22 00:21:41 2021 -0800
+
+    Merge branch 'master' of https://github.com/shnlmn/GGLO-Web-Survey
+
+[33mcommit 18570a12665ceffa6eee36e70022aebace81c309[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Mon Feb 22 00:21:12 2021 -0800
+
+    tidy up and make graphic improvements
+
+[33mcommit 01f56d66a17fcfb3718d1edc5347d7db09e2a19c[m
+Author: shnlmn <11766000+shnlmn@users.noreply.github.com>
+Date:   Sun Feb 21 23:41:14 2021 -0800
+
+    Delete credentials.json
+
+[33mcommit d0d43a37c8846cbc6e6ce1dbc4767b55880fd5dc[m
+Author: shnlmn <11766000+shnlmn@users.noreply.github.com>
+Date:   Sun Feb 21 23:41:07 2021 -0800
+
+    Delete gglocharrette-fd28466524f6.json
+
+[33mcommit 3abb4a503cc9482ef3038cfcd90d8344f8f69a32[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Sun Feb 21 20:20:55 2021 -0800
+
+    made totally vue compatable
+
+[33mcommit 4a5ac3e40b837b20a49d0d360c922400394541ef[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Sun Feb 21 10:46:28 2021 -0800
+
+    temp removed fs requirement
+
+[33mcommit c364ca06fe01a549a650d4877497d522831ab8e2[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Sun Feb 21 10:44:53 2021 -0800
+
+    added dependencies for fs and @mdi/font
+
+[33mcommit 35e2c3c9395390dfb4b880b18394ec69029a619e[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Sat Feb 20 20:49:22 2021 -0800
+
+    added data hud, buttons for clearing, data compliation
+
+[33mcommit 4e77779d20e17f99cf40013896e0cd38b5c3492e[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Sat Feb 20 12:48:29 2021 -0800
+
+    fixed some tooltip issues
+
+[33mcommit bd43c0ba8a62032b48cbd3eb898e798cd0ddeb8e[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Sat Feb 20 12:34:26 2021 -0800
+
+    added tool tips to program elements
+
+[33mcommit 4b53bcdcbaf678714ce3ca0fb78034b1efabc7d8[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Sat Feb 20 11:02:32 2021 -0800
+
+    clean up interface for review
+
+[33mcommit 9635d8abda7ce8e5910710b93724050f91a40f9d[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Fri Feb 19 23:52:17 2021 -0800
+
+    fixed sidebar menu,
+
+[33mcommit aa76a7aa4e4d9678ad99f5c2120a68bfeaa1a38a[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Fri Feb 19 17:05:48 2021 -0800
+
+    fixed scale
+
+[33mcommit 8eceabdb941905574bac3b798f42fc007df2fa3c[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Fri Feb 19 16:51:59 2021 -0800
+
+    rotated map, fixed scale
+
+[33mcommit b1c5af9e9c5dc03262845131a91b5ca398e108cf[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Fri Feb 19 16:20:25 2021 -0800
+
+    still trying to deploy
+
+[33mcommit a72b62ca6f263cf109ed677a68c6e51c08af8b82[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Fri Feb 19 16:17:33 2021 -0800
+
+    trying to deploy
+
+[33mcommit ed7b633dbf778fb6721e807fd7a1531ca6134638[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Fri Feb 19 16:07:41 2021 -0800
+
+    changed scale fo map
+
+[33mcommit 09ef896c6a8d2440ae06298d2a5afc7236e17bee[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Fri Feb 19 15:56:38 2021 -0800
+
+    add deploy.sh and vue.config.js for github pages deployment
+
+[33mcommit e2d4694d14d796cd39da99ce1b25f1fd8de9e9b5[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Fri Feb 19 15:34:48 2021 -0800
+
+    dist
+
+[33mcommit 1f99303176c830157d7286d218daf11687374278[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Fri Feb 19 15:32:22 2021 -0800
+
+    Updated with map and pieces
+
+[33mcommit 2023e697214782b9f65a5bd56f554dcc124c22de[m[33m ([m[1;31mremote/master[m[33m)[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Fri Feb 19 15:25:56 2021 -0800
+
+    updated map and pieces, scaled
+
+[33mcommit c5a7402432569607f5ea0aeece9e76412fe3228b[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Fri Feb 19 14:10:35 2021 -0800
+
+    mostly working
+
+[33mcommit edf260267fb8ea30036cdce6f7ed7b833e380470[m
+Author: shaleaman <magnetscoil@gmail.com>
+Date:   Thu Feb 18 19:48:29 2021 -0800
+
+    init

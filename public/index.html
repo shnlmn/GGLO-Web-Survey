@@ -22,9 +22,8 @@
       }
     </style>
   </head>
-    <form style="display: none" method="post" name="sumbitEntry" data-netlify="true" data-netlify-honeypot='bot-field'>
-          <input type="hidden" name="form" value="submitEntry" >
-          <input type="text" name="email">
+    <form style="display: none" method="POST" name="sumbitEntry" data-netlify="true" data-netlify-honeypot='bot-field'>
+          <input type="hidden" name="bot-field">
           <input type="text" name="zipCode">
           <input type="radio" id='yes' name='resident' value="yes">
           <input type="radio" id='no' name='resident' value="no">
@@ -33,6 +32,7 @@
           <input type="text" name="data">
           <button type="sumbit"></button>
           <!-- <btn @click="clear">clear</btn> -->
+      
         </form>
   <body>
       <div id="app"></div>

@@ -16,70 +16,102 @@
           >next</v-btn
         >
       </template>
-      <v-card>
-
-        
-        </v-card>
-      <!-- <v-card>
-        <v-form
-        @submit.prevent="handleSubmit"
-          ref="form"
-          method="post"
-          name="sumbitEntry"
+      <v-card class="pa-10">
+        <form
+          @submit.prevent="handleSubmit"
+          method="POST"
+          name="submitEntry"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
-          v-model="valid"
-          lazy-validation
-          class="pa-10"
         >
-          <input type="hidden" name="form" value="submitEntry" />
-          <v-text-field
-            v-model="answers.email"
-            :rules="emailRules"
-            label="E-mail"
-            name="email"
-            required
-          >
-          </v-text-field>
-          <v-text-field
-            v-model="answers.zipCode"
-            label="Zip Code"
+          <input type="hidden" name="bot-field" value="submitEntry" />
+          <p class="h4 text-center mb-4">One last step to submit your input.</p>
+          <label for="zip-code" class="grey-text">Your Zip Code</label>
+          <input
             name="zipCode"
-            :counter="5"
-            required
+            type="zipCode"
+            id="zip"
+            class="form-control"
+            v-model="answers.zipCode"
+          />
+          <br />
+          <label for="resident" class="grey-text"
+            >Do you live in an EHA building?</label
           >
-          </v-text-field>
-          <span class="question">Do you live in an EHA building?</span>
-          <v-radio-group v-model="answers.resident" name="resident">
-            <v-radio label="yes" value="yes"></v-radio>
-            <v-radio label="no" value="no"></v-radio>
-          </v-radio-group>
+          <div class="custom-control custom-radio">
+            <input
+              v-model="answers.resident"
+              type="radio"
+              class="custom-control-input"
+              id="resident-yes"
+              name="resident"
+              value="yes"
+            />
+            <label class="custom-control-label" for="resident-yes">Yes</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input
+              v-model="answers.resident"
+              type="radio"
+              class="custom-control-input"
+              id="resident-no"
+              name="resident"
+              value="no"
+            />
+            <label class="custom-control-label" for="resident-no">No</label>
+          </div>
+          <br />
+          <label for="neighbor" class="grey-text"
+            >Are you a neighbor to an EHA development?</label
+          >
+          <div class="custom-control custom-radio">
+            <input
+              v-model="answers.neighbor"
+              type="radio"
+              class="custom-control-input"
+              id="neighbor-yes"
+              name="neighbor"
+              value="yes"
+            />
+            <label class="custom-control-label" for="neighbor-yes">Yes</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input
+              v-model="answers.neighbor"
+              type="radio"
+              class="custom-control-input"
+              id="neighbor-no"
+              name="neighbor"
+              value="no"
+            />
+            <label class="custom-control-label" for="neighbor-no">No</label>
+          </div>
 
-          <span class="question"
-            >Are you a neighbor to an EHA development?</span
-          >
-          <v-radio-group v-model="answers.neighbor" name="neighbor">
-            <v-radio label="yes" value="yes"></v-radio>
-            <v-radio label="no" value="no"></v-radio>
-          </v-radio-group>
-          <v-btn class="mr-4" >submit</v-btn>
-          <v-btn @click="clear">clear</v-btn>
-        </v-form>
-      </v-card> -->
+          <div class="text-center mt-4">
+            <button class="btn btn-outline-warning" type="submit">
+              Send<i class="far fa-paper-plane ml-2"></i>
+            </button>
+          </div>
+        </form>
+      </v-card>
+
     </v-dialog>
   </div>
 </template>
 
 <script>
 // const fs = require('fs');
+import { mdbInput, mdbBtn, mdbTextarea } from "mdbvue";
 export default {
   data: () => {
     return {
+      mdbInput,
+      mdbBtn,
+      mdbTextarea,
       dialog: false,
       valid: true,
       answers: {
         zipCode: "",
-        email: "",
         resident: null,
         neighbor: null,
         data: null,
@@ -99,7 +131,7 @@ export default {
   methods: {
     sendData() {
       console.log("SEND DATA", this.answers.data);
-      // this.$emit("getData");
+      this.$emit("getData");
     },
     encode(data) {
       return Object.keys(data)
@@ -109,6 +141,7 @@ export default {
         .join("&");
     },
     handleSubmit() {
+      this.$emit("getData");
       fetch("/", {
         method: "post",
         headers: {
@@ -121,7 +154,11 @@ export default {
       })
         .then(() => console.log("successfully sent"))
         .catch((e) => console.error(e));
-      // console.log(body);
+      console.log(
+        this.encode({
+          ...this.answers,
+        })
+      );
     },
   },
 };
@@ -131,5 +168,8 @@ export default {
 <style lang="css" scoped>
 #nextbutton {
   margin-top: 50px;
+}
+form {
+  text-align: left !important;
 }
 </style>

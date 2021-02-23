@@ -5,62 +5,25 @@
       width="500"
       transition="dialog-bottom-transition"
     >
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          id="nextbutton"
-          dark
-          color="#5d8aa8"
-          @click="sendData"
-          v-bind="attrs"
-          v-on="on"
-          >next</v-btn
-        >
+      <template v-slot:activator="{ on, attrs }"> <v-btn id="nextbutton" dark color="#5d8aa8" @click="sendData" v-bind="attrs" v-on="on" >next</v-btn >
       </template>
-      <v-card class="pa-10">
-        <form
-          @submit.prevent="handleSubmit"
-          method="POST"
-          name="submitEntry"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          netlify
-        >
-          <input type="hidden" name="form-name" value="submitEntry" />
+      <v-card class="pa-10" id="questionnairre">
+        <form @submit.prevent="handleSubmit" method="POST" name="submitEntry" data-netlify="true" data-netlify-honeypot="bot-field" netlify>
 
-          <p class="h4 text-center mb-4">One last step to submit your input.</p>
+          <input type="hidden" name="form-name" value="submitEntry"/>
+          
+          <p class="h3 text-center mb-4">One last step to submit your input.</p>
           <label for="zip-code" class="grey-text">Your Zip Code</label>
-
-          <input
-            name="zipCode"
-            type="zipCode"
-            id="zip"
-            class="form-control"
-            v-model="answers.zipCode"
-          />
+         
+          <input name="zipCode" type="zipCode" id="zip" class="form-control" v-model="answers.zipCode" />
           <br />
-          <label for="resident" class="grey-text"
-            >Do you live in an EHA building?</label
-          >
+          <label for="resident" class="grey-text" >Do you live in an EHA building?</label >
           <div class="custom-control custom-radio">
-            <input
-              v-model="answers.resident"
-              type="radio"
-              class="custom-control-input"
-              id="resident-yes"
-              name="resident"
-              value="yes"
-            />
+            <input v-model="answers.resident" type="radio" class="custom-control-input" id="resident-yes" name="resident" value="yes" />
             <label class="custom-control-label" for="resident-yes">Yes</label>
           </div>
           <div class="custom-control custom-radio">
-            <input
-              v-model="answers.resident"
-              type="radio"
-              class="custom-control-input"
-              id="resident-no"
-              name="resident"
-              value="no"
-            />
+            <input v-model="answers.resident" type="radio" class="custom-control-input" id="resident-no" name="resident" value="no" />
             <label class="custom-control-label" for="resident-no">No</label>
           </div>
           <br />
@@ -68,35 +31,32 @@
             >Are you a neighbor to an EHA development?</label
           >
           <div class="custom-control custom-radio">
-            <input
-              v-model="answers.neighbor"
-              type="radio"
-              class="custom-control-input"
-              id="neighbor-yes"
-              name="neighbor"
-              value="yes"
-            />
+            <input v-model="answers.neighbor" type="radio" class="custom-control-input" id="neighbor-yes" name="neighbor" value="yes" />
             <label class="custom-control-label" for="neighbor-yes">Yes</label>
           </div>
           <div class="custom-control custom-radio">
-            <input
-              v-model="answers.neighbor"
-              type="radio"
-              class="custom-control-input"
-              id="neighbor-no"
-              name="neighbor"
-              value="no"
-            />
+            <input v-model="answers.neighbor" type="radio" class="custom-control-input" id="neighbor-no" name="neighbor" value="no" />
             <label class="custom-control-label" for="neighbor-no">No</label>
           </div>
 
-          <div class="text-center mt-4">
-            <button class="btn btn-outline-warning" type="submit">
-              Send<i class="far fa-paper-plane ml-2"></i>
+          <div class="text-center mt-5">
+            <button class="btn btn-outline-warning" type="submit" @click="submitted">
+              Send<i class="far fa-paper-plane ml-3"></i>
             </button>
           </div>
         </form>
       </v-card>
+
+    </v-dialog>
+    <v-dialog
+      v-model="thanks"
+      width="500"
+      transition="dialog-bottom-transition"
+    >
+    <v-card class="pa-10">
+     <h1>Thank you for your submission.</h1><br /><span> You can return to the game and try another!</span> 
+    </v-card>
+      
     </v-dialog>
   </div>
 </template>
@@ -110,6 +70,7 @@ export default {
       mdbInput,
       mdbBtn,
       mdbTextarea,
+      thanks: false,
       dialog: false,
       valid: true,
       answers: {
@@ -131,6 +92,10 @@ export default {
     });
   },
   methods: {
+    submitted(){
+      this.thanks = true;
+      this.dialog = false;
+    },
     sendData() {
       console.log("SEND DATA", this.answers.data);
       this.$emit("getData");

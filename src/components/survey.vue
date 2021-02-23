@@ -151,10 +151,6 @@ export default {
       }
     });
 
-    this.$root.$on("submit", (e) => {
-      console.log(this.submit());
-      console.log(e);
-    });
     this.canvas.renderAll();
     this.img = document.createElement("img");
     this.img.src = this.rotateIcon;
@@ -245,14 +241,13 @@ export default {
           bldgRect.displayName = el.name;
         }
         el.displayName = bldgRect.displayName;
-        console.log(bldgRect);
         bldgRect.displayName = el.displayName;
         bldgRect.name = el.name;
         el.bldgArea = el.width * el.length;
         let bldgGroup = this.addLabel(bldgRect);
+        console.log(bldgGroup);
 
         bldgGroup = this.applyData(bldgGroup, el);
-        console.log(bldgGroup);
 
         this.setControls(bldgGroup);
         this.canvas.add(bldgGroup);
@@ -339,7 +334,6 @@ export default {
     },
     setControls(object) {
       const that = this;
-      console.log(object);
       if (object.shape !== "Line") {
         object.setControlsVisibility({
           ...that.hideControls,

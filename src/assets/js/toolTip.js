@@ -1,3 +1,4 @@
+// import { asyncIterator } from "core-js/fn/symbol";
 import { fabric } from "fabric";
 export const toolTipPopup = (e) => {
   const targ = e.target;
@@ -18,6 +19,7 @@ export const toolTipPopup = (e) => {
         left: targ.left,
         selectable: false,
         evented: false,
+        fontFamily: "Arial" 
       });
       if (targ.angle == 90) {
         offsetX = tipText.left - tipText.width / 2 -  targ.height / 2;

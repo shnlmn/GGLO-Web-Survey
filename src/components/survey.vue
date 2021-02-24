@@ -459,10 +459,19 @@ export default {
     rotateCW(eventData, transform) {
       const target = transform.target;
       const canvas = target.canvas;
+
+      if (target.shape == "UShape"){
+        target.rotate(target.angle+ 90);
+      } else {
+
       if (target.angle == 0) {
         target.rotate(90);
       } else {
         target.rotate(0);
+      }
+      }
+      if (target.angle > 270){
+        target.angle = 0
       }
 
       canvas.requestRenderAll();

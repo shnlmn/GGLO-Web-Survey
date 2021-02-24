@@ -1,7 +1,7 @@
 // import { asyncIterator } from "core-js/fn/symbol";
 import { fabric } from "fabric";
 export const toolTipPopup = (e) => {
-  const targ = e.target;
+  let targ = e.target;
   const padding = 2;
   let tipText = null;
   let tipTextBox = null;
@@ -9,24 +9,27 @@ export const toolTipPopup = (e) => {
   let offsetX = 0;
   let offsetY = 0;
   if (targ) {
+    targ = targ.setCoords()
+    const brect = targ.getBoundingRect();
+    console.log(brect);
     if ("name" in targ && targ.name !== "toolTip") {
       // make blank rect so it renders below text
 
       tipText = new fabric.Text(targ.displayName, {
         fontSize: 20,
         fill: "black",
-        top: targ.top,
-        left: targ.left,
+        top: brect.top,
+        left: brect.left,
         selectable: false,
         evented: false,
         fontFamily: "Arial" 
       });
-      if (targ.angle == 90) {
-        offsetX = tipText.left - tipText.width / 2 -  targ.height / 2;
-      } else {
-        offsetX = tipText.left - tipText.width / 2 + (targ.width*targ.scaleX) / 2;
-      }
-      if (targ.top < tipText.height+4){
+      // if (targ.angle == 90) {
+      //   offsetX = tipText.left - tipText.width / 2 -  brect.height / 2;
+      // } else {
+        offsetX = tipText.left - tipText.width / 2 + (brect.width) / 2;
+      // }
+      if (brect.top < tipText.height+4){
         offsetY = tipText.height *2 
       } else {
         offsetY = tipText.top - tipText.height - 4

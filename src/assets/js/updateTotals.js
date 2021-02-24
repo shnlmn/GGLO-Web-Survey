@@ -11,7 +11,6 @@ export const updateTotals = (activeObjects) => {
   for (let index = 0; index < activeObjects.length; index++) {
     const el = activeObjects[index];
     if (el.type  == "apt") {
-    console.log(el);
       totalData["DU"]['total'] += el.du;
       // totalData["bldgArea"]['total'] += el.bldgArea;
       // totalData["floorArea"]['total'] += el.bldgArea * el.floors;

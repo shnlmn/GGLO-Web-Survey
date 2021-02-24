@@ -151,6 +151,7 @@ export default {
       }
     });
 
+
     this.canvas.renderAll();
     this.img = document.createElement("img");
     this.img.src = this.rotateIcon;
@@ -259,12 +260,15 @@ export default {
         } else {
           bldgRect.displayName = el.name;
         }
+        var setCoords = bldgRect.setCoords.bind(bldgRect);
+        bldgRect.on({
+          moving: setCoords
+        })
         el.displayName = bldgRect.displayName;
         bldgRect.displayName = el.displayName;
         bldgRect.name = el.name;
         el.bldgArea = el.width * el.length;
         let bldgGroup = this.addLabel(bldgRect);
-        console.log(bldgGroup);
 
         bldgGroup = this.applyData(bldgGroup, el);
 
@@ -338,9 +342,7 @@ export default {
           (object.height * object.scaleY) / 2 -
           lineText.height / 2,
       });
-      console.log(object._objects);
       if (object._objects) {
-        console.log("OBJECTS");
         return object.add(lineText);
       } else {
         return new fabric.Group([object, lineText]);
